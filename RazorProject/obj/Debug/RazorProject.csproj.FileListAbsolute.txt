@@ -53,3 +53,4 @@
 \\psf\home\documents\visual studio 2013\Projects\RazorProject\RazorProject\obj\Debug\RazorProject.csprojResolveAssemblyReference.cache
 \\psf\home\documents\visual studio 2013\Projects\RazorProject\RazorProject\obj\Debug\RazorProject.dll
 \\psf\home\documents\visual studio 2013\Projects\RazorProject\RazorProject\obj\Debug\RazorProject.pdb
+\\psf\home\documents\visual studio 2013\Projects\RazorProject\RazorProject\bin\VortexSoft.Bootstrap.dll

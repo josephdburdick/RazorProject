@@ -58,22 +58,75 @@
 
     </div>
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Modal Dialog</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            <a class="btn btn-warning" data-toggle="modal" href="#myModal">Normal Modal (failing)</a>
+
+            @using (var modal = Html.Bootstrap().Begin(new Modal(new { id = "myModal" })))
+            {
+                using (var header = modal.BeginHeader())
+                {
+                    <button type="button" class="close"
+                            data-dismiss="modal">
+                        ×
+                    </button>
+                    <h3>Modal header</h3>
+                }
+                using (var body = modal.BeginBody())
+                {
+                <p>One fine body…</p>
+                }
+                using (var footer = modal.BeginFooter())
+                {
+                    @Html.Bootstrap().Button("Close", BootstrapNamedColor.Default, null, new { data_dismiss = "modal" })
+                    @Html.Bootstrap().Button("Save Changes", BootstrapNamedColor.Primary, null)
+                }
+            }
         </p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Tabs</h2>
+        @using (var tabs = Html.Bootstrap().Begin(new Tabs()))
+        {
+            tabs.Tab("Tab One", "tab1");
+            tabs.Tab("Tab Two", "tab2");
+            tabs.Tab("Tab Three", "tab3");
+
+            using (tabs.BeginPanel())
+            {
+                <p>This is tabs panel 1 content</p>
+            }
+            using (tabs.BeginPanel())
+            {
+                <p>This is tabs panel 2 content</p>
+            }
+            using (tabs.BeginPanel())
+            {
+                <p>This is tabs panel 3 content</p>
+            }
+        }
     </div>
     <div class="col-md-4">
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Carousel</h2>
+        @using (var carousel = Html.Bootstrap().Begin(new Carousel("carousel1")))
+        {
+            carousel.Item("http://placehold.it/850x550/cc0000", "Red");
+
+            using (var item = carousel.ItemWithCaption("http://placehold.it/850x550/00ff00", "Green"))
+            {
+                <h4>This is Green</h4>
+                <p>Green is a nice color</p>
+            }
+
+            carousel.Item("http://placehold.it/850x550/0000ff", "Blue");
+        }
     </div>
 </div>
